@@ -1,70 +1,47 @@
 /*
-  styles.css — minimal styling for Rohit's personal site
-
-  Design goals:
-  - Very basic and clean (lots of whitespace, readable type)
-  - Works on phone and desktop (responsive without frameworks)
-  - Warm, slightly "paper-like" background — charming but not flashy
+  styles.css — minimal investor-scannable personal site
 */
 
-/* --- CSS variables: change colors/fonts in one place --- */
 :root {
-  --bg: #faf8f5;           /* soft off-white, like paper */
-  --text: #2c2c2c;         /* near-black, easier on the eyes than pure black */
-  --text-muted: #5a5a5a;   /* secondary text (venues, tagline) */
-  --accent: #4a6741;       /* muted green for links — subtle, not loud */
+  --bg: #faf8f5;
+  --text: #2c2c2c;
+  --text-muted: #5a5a5a;
+  --accent: #4a6741;
   --accent-hover: #3d5536;
-  --max-width: 38rem;      /* keeps line length comfortable (~65 characters) */
+  --max-width: 38rem;
   --spacing: 1.5rem;
 }
 
-/* --- Reset-ish defaults --- */
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
 
-html {
-  /* Smooth scrolling if someone links to a section later */
-  scroll-behavior: smooth;
-}
-
 body {
   margin: 0;
   padding: var(--spacing);
   min-height: 100vh;
-
-  /* Body text: clean sans-serif */
   font-family: "Source Sans 3", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   font-size: 1.05rem;
-  line-height: 1.65;
+  line-height: 1.6;
   color: var(--text);
   background-color: var(--bg);
-
-  /* Subtle texture feel via a very light gradient (optional charm) */
-  background-image: linear-gradient(
-    180deg,
-    #fdfcfa 0%,
-    var(--bg) 20%,
-    var(--bg) 100%
-  );
+  background-image: linear-gradient(180deg, #fdfcfa 0%, var(--bg) 20%, var(--bg) 100%);
 }
 
-/* --- Page layout --- */
 .page {
   max-width: var(--max-width);
   margin: 0 auto;
   padding: 2rem 0 4rem;
 }
 
-/* --- Intro / header --- */
+/* --- Header --- */
 .intro {
-  margin-bottom: 2.5rem;
+  margin-bottom: 1.25rem;
 }
 
 .intro h1 {
-  /* Headings: gentle serif for a personal, readable feel */
   font-family: "Lora", Georgia, "Times New Roman", serif;
   font-size: clamp(1.75rem, 5vw, 2.25rem);
   font-weight: 600;
@@ -78,64 +55,24 @@ body {
   font-size: 1.1rem;
 }
 
-/* --- Bio paragraphs --- */
-.bio p {
-  margin: 0 0 1.25rem;
-}
-
-.bio p:last-child {
-  margin-bottom: 0;
-}
-
-/* Italic closing line — a small visual beat */
-.closing {
-  font-style: italic;
-  color: var(--text-muted);
-  margin-top: 1.5rem !important;
-}
-
-/* --- Papers section --- */
-.papers {
-  margin-top: 3rem;
-  padding-top: 2rem;
-  border-top: 1px solid rgba(0, 0, 0, 0.08);
-}
-
-.papers h2 {
-  font-family: "Lora", Georgia, serif;
-  font-size: 1.25rem;
-  font-weight: 600;
-  margin: 0 0 1.25rem;
-  letter-spacing: 0.02em;
-  text-transform: lowercase; /* matches your "papers" heading style */
-}
-
-.paper-list {
-  margin: 0;
-  padding-left: 1.25rem;
-  list-style: decimal;
-}
-
-.paper-list li {
-  margin-bottom: 1.5rem;
-  padding-left: 0.35rem;
-}
-
-.paper-list li:last-child {
-  margin-bottom: 0;
-}
-
-.paper-title {
-  display: block;
+/* --- Pitch + bullet list --- */
+.lede {
+  margin: 0 0 1.5rem;
+  font-size: 1.08rem;
   font-weight: 500;
-  margin-bottom: 0.25rem;
 }
 
-.paper-venue {
-  display: block;
-  font-size: 0.92rem;
-  color: var(--text-muted);
-  margin-bottom: 0.35rem;
+.highlights {
+  margin: 0;
+  padding-left: 1.15rem;
+}
+
+.highlights li {
+  margin-bottom: 0.65rem;
+}
+
+.highlights li:last-child {
+  margin-bottom: 0;
 }
 
 /* --- Links --- */
@@ -151,9 +88,9 @@ a:hover {
   color: var(--accent-hover);
 }
 
-/* --- Footer / contact --- */
+/* --- Footer --- */
 .contact {
-  margin-top: 3rem;
+  margin-top: 2.5rem;
   padding-top: 1.5rem;
   border-top: 1px solid rgba(0, 0, 0, 0.08);
 }
@@ -166,7 +103,6 @@ a:hover {
   font-size: 0.95rem;
 }
 
-/* Footer links: icon sits beside the label, inherits link color */
 .links a {
   display: inline-flex;
   align-items: center;
@@ -178,14 +114,12 @@ a:hover {
   text-decoration: underline;
 }
 
-/* SVG icons scale with text and pick up the green accent color */
 .icon {
   width: 1.05em;
   height: 1.05em;
   flex-shrink: 0;
 }
 
-/* --- Small screens: tighten padding --- */
 @media (max-width: 480px) {
   body {
     padding: 1rem;
