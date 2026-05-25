@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<!-- Personal site for Rohit Naidu — single-page, no build step required -->
+<html lang="en">
+<head>
+  <!-- Basic page metadata for browsers and search engines -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Rohit Naidu — CS + DS at Berkeley. Software, health, and human performance.">
+  <title>Rohit Naidu</title>
+
+  <!-- Link to our stylesheet (keeps HTML readable) -->
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Optional: a slightly nicer serif for headings (loads from Google Fonts) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Source+Sans+3:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Main content wrapper — keeps text width comfortable on large screens -->
+  <main class="page">
+
+    <!-- Intro: name + one-line identity -->
+    <header class="intro">
+      <h1>Hey, I'm Rohit.</h1>
+      <p class="tagline">CS + DS at Berkeley.</p>
+    </header>
+
+    <!-- Bio sections: plain paragraphs, no fancy components -->
+    <section class="bio" aria-label="About">
+      <p>
+        I build at the intersection of software, health, and human performance.
+        Right now, I'm working on reducing unwanted side effects from popular GLP medications.
+      </p>
+
+      <p>
+        I started as a clueless middle schooler with hackathons and a crusty Java textbook.
+        Somehow, that turned into a run of high school, national, and international hackathon wins,
+        followed by a deep dive into competitive programming. In 2023, I reached USA Computing Olympiad
+        Platinum, placing in the top 1% of competitive programmers, and later helped represent the U.S.
+        at the AGM IX International Programming Contest.
+      </p>
+
+      <p>
+        Along the way, I explored research across computational finance, software maintenance, AI,
+        truck routing, and heat-index modeling, working with groups and professors at UChicago, UIUC,
+        Minnesota, and Berkeley. I also coauthored two IEEE papers, led Agentic AI at Swif.ai,
+        and built a daily-use AI dashboard for five AT&amp;T product managers that modeled over $100M in revenue.
+      </p>
+
+      <p>
+        But the thread that never really disappeared was biological optimization.
+      </p>
+
+      <p>
+        I've always been obsessed with the question: how do you make the human body and mind work
+        better in real life? Not in a vague "wellness" way, but in a practical, systems-level,
+        PubMed-at-2am kind of way. Cognition, recovery, metabolism, health span, performance longevity...
+        I kept coming back to it.
+      </p>
+
+      <p>
+        Now I'm combining that obsession with my technical background to build tools that make medicine
+        more personalized, tolerable, and effective.
+      </p>
+
+      <p class="closing">
+        Still learning. Still experimenting. Still probably reading too many papers at night.
+      </p>
+    </section>
+
+    <!-- Papers: numbered list with titles and links where available -->
+    <section class="papers" aria-label="Publications">
+      <h2>Papers</h2>
+
+      <ol class="paper-list">
+        <li>
+          <span class="paper-title">Coauthored with GlueTest: Testing Code Translation via Language Interoperability</span>
+          <span class="paper-venue">
+            40th International Conference on Software Maintenance and Evolution, New Ideas and Emerging Results
+            (ICSME NIER 2024), pages 612–617, Flagstaff, AZ, October 2024
+          </span>
+          <a href="https://mir.cs.illinois.edu/marinov/publications/AbidETAL24GlueTest.pdf" target="_blank" rel="noopener noreferrer">PDF</a>
+        </li>
+
+        <li>
+          <span class="paper-title">Coauthored with Prof. Darko Marinov on "Mini-Crowd Research: A Collaborative Model for Involving Beginner Researchers in Software Engineering Research"</span>
+          <span class="paper-venue">
+            International Conference on Software Engineering: ICSE-SEET 2024, submission #119.
+          </span>
+        </li>
+
+        <li>
+          <span class="paper-title">Acknowledged in Prof. Darko Marinov's Publication: Reproducing and Improving the BugsInPy Dataset</span>
+          <span class="paper-venue">
+            23rd IEEE International Working Conference on Source Code Analysis and Manipulation,
+            Engineering Track (SCAM 2023), Bogota, Colombia, October 2023.
+          </span>
+          <a href="https://mir.cs.illinois.edu/marinov/publications/AguilarETAL23ReproducingBugsInPy.pdf" target="_blank" rel="noopener noreferrer">PDF</a>
+        </li>
+
+        <li>
+          <span class="paper-title">Rohit S. Naidu, Effective Hedging Strategy for Investment Trading Firms in Response to US Oil Price Volatility.</span>
+          <span class="paper-venue">Curieux Academic Journal, April 2023, Page 78.</span>
+          <a href="https://www.curieuxacademicjournal.com/_files/ugd/99711c_51e8cc7c2ba94cb5a3f74baf78905c66.pdf" target="_blank" rel="noopener noreferrer">PDF</a>
+        </li>
+      </ol>
+    </section>
+
+    <!-- Contact links: icon + label for each platform -->
+    <footer class="contact" aria-label="Contact and links">
+      <nav class="links">
+
+        <!-- LinkedIn -->
+        <a href="https://www.linkedin.com/in/rohit-naidu-b65051205/" target="_blank" rel="noopener noreferrer">
+          <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="currentColor" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.125 2.062 2.062 0 0 1 0 4.125zM7.114 20.452H3.559V9h3.555v11.452z"/>
+          </svg>
+          LinkedIn
+        </a>
+
+        <!-- GitHub -->
+        <a href="https://github.com/rohit-naidu" target="_blank" rel="noopener noreferrer">
+          <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="currentColor" d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.82-.26.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.085 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222 0 1.604-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.297 24 12 24 5.373 18.627 0 12 0z"/>
+          </svg>
+          GitHub
+        </a>
+
+        <!-- Devpost -->
+        <a href="https://devpost.com/rohitnofficial" target="_blank" rel="noopener noreferrer">
+          <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="currentColor" d="M6 2h9l7 7v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm8 2v6h6L14 4z"/>
+          </svg>
+          Devpost
+        </a>
+
+        <!-- Email -->
+        <a href="mailto:rohit_naidu@berkeley.edu">
+          <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="currentColor" d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5L4 8V6l8 5 8-5v2z"/>
+          </svg>
+          Email
+        </a>
+
+      </nav>
+    </footer>
+
+  </main>
+
+</body>
+</html>
