@@ -75,23 +75,309 @@ body {
   line-height: 1.65;
 }
 
-/* --- Highlight list: clean left rule, no bullet dots --- */
-.highlights {
+/* --- Horizontal journey (compact) --- */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.journey {
+  --progress: 0;
+  --human-scale: 0.38;
+  --human-opacity: 0;
+  --cell-opacity: 1;
+  --leg-l: 0deg;
+  --leg-r: 0deg;
+  --arm-l: 0deg;
+  --arm-r: 0deg;
+  --bob: 0px;
+  margin: 0 0 2.5rem;
+}
+
+.journey-card {
+  border-radius: 0.55rem;
+  border: 1px solid var(--rule);
+  background: rgba(255, 255, 255, 0.5);
+  overflow: hidden;
+}
+
+.journey-bullets-panel {
+  position: relative;
+  min-height: 4.75rem;
+  padding: 0.85rem 1rem 0.75rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+.journey-bullets-panel:not(.has-bullet)::before {
+  content: "→";
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-light);
+  font-size: 1.1rem;
+  opacity: 0.45;
+  pointer-events: none;
+}
+
+.journey-bullets-panel.has-bullet::before {
+  content: none;
+}
+
+.scene-track {
+  position: relative;
+  height: 4.75rem;
+  cursor: ew-resize;
+  touch-action: none;
+  user-select: none;
+  padding: 0 0.85rem;
+}
+
+.scene-ground {
+  position: absolute;
+  left: 0.85rem;
+  right: 0.85rem;
+  bottom: 1.15rem;
+  height: 2px;
+  background: rgba(74, 103, 65, 0.12);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.scene-ground-fill {
+  height: 100%;
+  width: calc(var(--progress) * 100%);
+  background: linear-gradient(90deg, rgba(74, 103, 65, 0.55), var(--accent));
+  border-radius: 999px;
+}
+
+.scene-actor {
+  position: absolute;
+  bottom: 0.95rem;
+  left: calc(8% + var(--progress) * 78%);
+  transform: translateX(-50%) translateY(calc(var(--bob) * -1));
+  width: 2.75rem;
+  height: 3.35rem;
+  color: var(--accent);
+  pointer-events: none;
+  filter: drop-shadow(0 2px 3px rgba(74, 103, 65, 0.15));
+}
+
+.scene-actor::after {
+  content: "";
+  position: absolute;
+  bottom: -0.15rem;
+  left: 50%;
+  width: 70%;
+  height: 0.2rem;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.07);
+  border-radius: 999px;
+  filter: blur(1px);
+}
+
+.actor-cell,
+.actor-walker {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  transform-origin: center bottom;
+}
+
+.actor-cell {
+  width: 2.4rem;
+  height: 2.4rem;
+  opacity: var(--cell-opacity);
+  transform: translateX(-50%);
+  animation: cell-glow 2.4s ease-in-out infinite;
+}
+
+@keyframes cell-glow {
+  0%, 100% { filter: brightness(1); }
+  50% { filter: brightness(1.08); }
+}
+
+.journey[data-stage="1"] .actor-cell,
+.journey[data-stage="2"] .actor-cell,
+.journey[data-stage="3"] .actor-cell {
+  animation: none;
+}
+
+.actor-walker {
+  width: 2.65rem;
+  height: 3.2rem;
+  opacity: var(--human-opacity);
+  transform: translateX(-50%) scale(var(--human-scale));
+  transition: opacity 0.25s ease;
+}
+
+.walker-head {
+  fill: currentColor;
+}
+
+.walker-torso,
+.walker-leg line,
+.walker-arm line {
+  stroke: currentColor;
+}
+
+.walker-leg-l {
+  transform-origin: 50px 66px;
+  transform: rotate(var(--leg-l));
+}
+
+.walker-leg-r {
+  transform-origin: 50px 66px;
+  transform: rotate(var(--leg-r));
+}
+
+.walker-arm-l {
+  transform-origin: 50px 34px;
+  transform: rotate(var(--arm-l));
+}
+
+.walker-arm-r {
+  transform-origin: 50px 34px;
+  transform: rotate(var(--arm-r));
+}
+
+.journey-controls {
+  padding: 0.55rem 0.85rem 0.75rem;
+  border-top: 1px solid var(--rule);
+  background: rgba(255, 255, 255, 0.35);
+}
+
+.journey-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 0.35rem;
+  border-radius: 999px;
+  background: linear-gradient(
+    90deg,
+    var(--accent) 0%,
+    var(--accent) calc(var(--progress) * 100%),
+    rgba(74, 103, 65, 0.12) calc(var(--progress) * 100%),
+    rgba(74, 103, 65, 0.12) 100%
+  );
+  outline: none;
+  cursor: grab;
+}
+
+.journey-slider:active {
+  cursor: grabbing;
+}
+
+.journey-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 0.95rem;
+  height: 0.95rem;
+  border-radius: 50%;
+  background: var(--bg);
+  border: 2px solid var(--accent);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+.journey-slider::-moz-range-thumb {
+  width: 0.95rem;
+  height: 0.95rem;
+  border-radius: 50%;
+  background: var(--bg);
+  border: 2px solid var(--accent);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+.journey-steps {
   list-style: none;
   margin: 0;
   padding: 0;
+  position: relative;
+  min-height: 3.5rem;
+}
+
+.journey-steps li {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: 0;
+  padding: 0 0 0 0.85rem;
+  border-left: 2px solid transparent;
+  font-size: 0.98rem;
+  line-height: 1.55;
+  color: var(--text);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(14px);
+  transition:
+    opacity 0.4s ease,
+    transform 0.4s ease,
+    visibility 0.4s ease,
+    border-color 0.35s ease;
+}
+
+.journey-steps li.is-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0);
+  border-left-color: var(--accent);
+}
+
+.journey-steps li.is-past,
+.journey-steps li.is-upcoming {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(-10px);
+}
+
+.journey--static .journey-bullets-panel {
+  min-height: 0;
+}
+
+.journey--static .journey-bullets-panel::before {
+  content: none;
+}
+
+.journey--static .journey-steps {
+  position: static;
+  min-height: 0;
   display: flex;
   flex-direction: column;
-  gap: 0.9rem;
+  gap: 0.65rem;
 }
 
-.highlights li {
-  margin: 0;
-  padding: 0.15rem 0 0.15rem 1.1rem;
-  border-left: 2px solid rgba(74, 103, 65, 0.22);
-  line-height: 1.65;
+.journey--static .journey-steps li {
+  position: static;
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+  border-left-color: rgba(74, 103, 65, 0.22);
 }
 
+.journey--static .scene-actor {
+  left: 88%;
+}
+
+.journey--static .actor-cell {
+  opacity: 0;
+}
+
+.journey--static .actor-walker {
+  opacity: 1;
+  --human-scale: 1;
+  --human-opacity: 1;
+}
+
+/* --- Highlight list (shared styles) --- */
 .highlights strong {
   font-weight: 600;
   color: var(--text);
@@ -211,5 +497,24 @@ a:hover {
 
   .lede {
     font-size: 1.0625rem;
+  }
+
+  .journey-bullets-panel {
+    min-height: 5.5rem;
+    padding: 0.75rem 0.85rem;
+  }
+
+  .journey-steps li {
+    font-size: 0.92rem;
+    line-height: 1.5;
+  }
+
+  .scene-track {
+    height: 4.25rem;
+  }
+
+  .scene-actor {
+    width: 2.4rem;
+    height: 3rem;
   }
 }

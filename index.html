@@ -26,16 +26,70 @@
       <p class="lede-sub">
         Right now, I'm working on reducing unwanted side effects from popular GLP medications.
       </p>
+    </section>
 
-      <ul class="highlights">
-        <li>Started with middle school hackathons and a crusty Java textbook, and slowly worked my way up to <strong>USACO Platinum</strong>.</li>
-        <li>Got to represent the U.S. at the AGM IX International Programming Contest.</li>
-        <li>Spent time in research, including coauthoring <strong>2 IEEE papers</strong> with Prof. Darko Marinov's UIUC research group.</li>
-        <li>Was lucky to be the <strong>youngest Data Scientist at AT&amp;T</strong>, where I built revenue intelligence tools touching <strong>$100M+</strong>.</li>
-        <li>Led AI Agent development at Swif.ai (YC 2020), focused on agentic onboarding and offboarding automation.</li>
-        <li>I've had a long-running interest in biological optimization, from cognition and recovery to health span and personalized medicine.</li>
-        <li>Now combining technical depth with a very unfortunate 2am PubMed habit to make medicine feel less like trial-and-error.</li>
-      </ul>
+    <section class="journey" aria-label="Background">
+      <div class="journey-card">
+        <div class="journey-bullets-panel">
+          <ol class="journey-steps highlights">
+            <li>Started with middle school hackathons and a crusty Java textbook, and slowly worked my way up to <strong>USACO Platinum (Top 1%)</strong>.</li>
+            <li><strong>Represented the U.S.</strong> at an <strong>International Programming Contest (AGM IX)</strong>.</li>
+            <li>Spent time in research, including coauthoring <strong>2 IEEE papers</strong> with Prof. Darko Marinov's <strong>UIUC</strong> research group.</li>
+            <li>Was lucky to be the <strong>youngest Data Scientist at AT&amp;T</strong>, where I built <strong>revenue intelligence tools</strong> touching <strong>$100M+</strong>.</li>
+            <li>Led <strong>AI Agent development</strong> at <strong>Swif.ai (YC 2020)</strong>, focused on agentic onboarding and offboarding automation.</li>
+            <li>I've had a long-running interest in <strong>biological optimization</strong>, from cognition and recovery to <strong>health span</strong> and <strong>personalized medicine</strong>.</li>
+            <li>Now combining <strong>technical depth</strong> with a very unfortunate 2am PubMed habit to make medicine feel less like <strong>trial-and-error</strong>.</li>
+          </ol>
+        </div>
+
+        <div class="scene-track" id="scene-track">
+          <div class="scene-ground">
+            <div class="scene-ground-fill"></div>
+          </div>
+
+          <div class="scene-actor" aria-hidden="true">
+            <svg class="actor-cell" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="40" cy="40" r="30" fill="rgba(74, 103, 65, 0.12)" stroke="currentColor" stroke-width="1.5" opacity="0.9"/>
+              <circle cx="40" cy="40" r="11" fill="currentColor" opacity="0.45"/>
+              <circle cx="52" cy="32" r="3.5" fill="currentColor" opacity="0.25"/>
+            </svg>
+
+            <svg class="actor-walker" viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg">
+              <g class="walker-body">
+                <circle class="walker-head" cx="50" cy="14" r="9"/>
+                <line class="walker-torso" x1="50" y1="23" x2="50" y2="66" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/>
+                <g class="walker-arm walker-arm-l">
+                  <line x1="50" y1="34" x2="36" y2="48" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+                </g>
+                <g class="walker-arm walker-arm-r">
+                  <line x1="50" y1="34" x2="64" y2="48" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+                </g>
+                <g class="walker-leg walker-leg-l">
+                  <line x1="50" y1="66" x2="40" y2="104" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/>
+                  <circle cx="40" cy="106" r="3" fill="currentColor"/>
+                </g>
+                <g class="walker-leg walker-leg-r">
+                  <line x1="50" y1="66" x2="60" y2="104" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/>
+                  <circle cx="60" cy="106" r="3" fill="currentColor"/>
+                </g>
+              </g>
+            </svg>
+          </div>
+        </div>
+
+        <div class="journey-controls">
+          <label class="sr-only" for="journey-slider">Life journey slider</label>
+          <input
+            id="journey-slider"
+            class="journey-slider"
+            type="range"
+            min="0"
+            max="1000"
+            value="0"
+            step="1"
+          >
+        </div>
+      </div>
     </section>
 
     <section class="papers" aria-label="Publications">
@@ -111,5 +165,6 @@
 
   </main>
 
+  <script src="script.js"></script>
 </body>
 </html>
