@@ -92,6 +92,11 @@ body {
   line-height: 1.65;
 }
 
+.highlights strong {
+  font-weight: 600;
+  color: var(--text);
+}
+
 /* --- Section headings --- */
 .section-title {
   font-family: "Lora", Georgia, serif;
